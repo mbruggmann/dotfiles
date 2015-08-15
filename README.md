@@ -5,7 +5,7 @@
 Run this:
 
 ```sh
-git clone https://github.com/mbruggmann/dotfiles.git ~/.dotfiles
+git clone git@github.com:mbruggmann/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/dotfiles
 script/install
