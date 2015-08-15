@@ -24,20 +24,20 @@ files in there. Anything with an extension of `.zsh` will get automatically
 included into your shell. Anything with an extension of `.symlink` will get
 symlinked without extension into `$HOME`.
 
-There's a few special files in the hierarchy.
-
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.
 - **topic/\*.zsh**: Any files ending in `.zsh` get loaded into your
   environment.
 - **topic/completion.zsh**: Any file named `completion.zsh` is loaded
-  last and is expected to setup autocomplete.
+  into the zsh autocompletion.
 - **topic/\*.symlink**: Any files ending in `*.symlink` get symlinked into
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
-- **topic/install.sh**: Any file named `install.sh` is executed from the
-  install script during the initial installation.
+- **topic/install.sh**: Any file named `install.sh` is executed when running
+  the `script/install` script.
+- **topic/\*.brew** Any package listed in a file ending with `.brew` will be
+  installed from homebrew when running the `script/install` script.
 
 ## thanks
 
