@@ -115,6 +115,7 @@ install_dotfiles () {
 }
 
 install_dotfiles
+source ~/.zshrc
 
 echo ''
 echo '  All installed!'
