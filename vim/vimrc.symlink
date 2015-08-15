@@ -1,4 +1,156 @@
-syntax on
+set nocompatible
 
-" Wrap gitcommit file types at the appropriate length
-filetype indent plugin on
+" Plugins (vundle)
+    " install all bundles with :PluginInstall
+    " remove unneeded bundles with :PluginClean
+
+    " required stuff
+    filetype off
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+
+    " open files with ctrl-p
+    Plugin 'kien/ctrlp.vim'
+
+    " syntax highlighting
+    Plugin 'jnwhiteh/vim-golang'
+    Plugin 'jboyens/vim-protobuf'
+    Plugin 'framallo/asciidoc.vim'
+    Plugin 'derekwyatt/vim-scala'
+    Plugin 'jceb/vim-orgmode'
+    Plugin 'stephpy/vim-yaml'
+    Plugin 'elzr/vim-json'
+
+    " annoying whitespaces
+    Plugin 'bitc/vim-bad-whitespace'
+    " erase bad withespace with :EraseBadWhitespace
+
+    " easy comment things away
+    Plugin 'tComment'
+    nnoremap // :TComment<CR>
+    vnoremap // :TComment<CR>
+
+    " handy bracket mappings
+    Plugin 'tpope/vim-unimpaired'
+
+    " NERDTree
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'jistr/vim-nerdtree-tabs'
+    let g:nerdtree_tabs_open_on_console_startup=1
+
+    " Tagbrowser (class/methods)
+    Plugin 'majutsushi/tagbar'
+
+    " powerline statusbar
+    Plugin "Lokaltog/vim-powerline"
+    let g:Powerline_symbols = 'fancy'
+
+    call vundle#end()
+
+" Basics
+    syntax on
+    filetype indent plugin on
+
+    " allow unmodified buffers in the background
+    set hidden
+
+    " better command matching
+    set wildmenu
+    set hlsearch
+
+    " case-insensitive search, except if search term contains uppercase char(s)
+    set ignorecase
+    set smartcase
+
+    " backspace across lines
+    set backspace=indent,eol,start
+
+    " map 'jj' to change to normal mode
+    inoremap jj <ESC>
+
+    " font
+    set guifont=Monaco:h11
+
+" Indent
+    set shiftwidth=4
+    set softtabstop=4
+    set tabstop=8
+    set expandtab
+
+    " set listchars=tab:>-,eol:↵
+    " set list
+
+" Folding
+    " set foldmethod=indent
+    " set foldnestmax=2
+    " nnoremap <space> za
+    " vnoremap <space> zf
+
+" General
+    set encoding=utf-8
+    set autoindent
+    set showmode
+    set showcmd
+    " set hidden
+    set wildmenu
+    set wildmode=list:longest
+    set wildignore=*.o,*~,*.pyc
+    set visualbell
+    set ttyfast
+    set ruler
+
+    set nobackup
+    set noswapfile
+
+" UI
+    set background=dark
+    " set cursorcolumn
+    set cursorline
+
+    set incsearch	" highlight as you search
+    set laststatus=2	" always show status line
+
+    set nostartofline	" leave cursor where it was
+    set number		" line numbers
+
+    " hide toolbar from GUI
+    if has("gui_running")
+        set guioptions=-t
+        set guioptions=+e
+    endif
+
+    " colorscheme
+    colorscheme Marcbr
+
+" line wraps
+    set wrap
+    set textwidth=79
+    set formatoptions=qrn1
+    set colorcolumn=80
+
+" keyboard shortcuts
+    let mapleader = ","
+    let g:mapleader = ","
+
+    " Fast saving
+    nmap <leader>w :w!<cr>
+
+    " change tab with ctrl-tab
+    noremap <c-tab> :tabnext<cr>
+
+    " ctrlp opening in tabs by default
+    let g:ctrlp_prompt_mappings = {
+        \ 'AcceptSelection("e")': ['<c-t>'],
+        \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
+    \ }
+
+    " open tagbar with ctrl-t
+    noremap <c-t> :TagbarToggle<cr>
+
+    " re-open file as sudo
+    cmap w!! w !sudo tee >/dev/null %
+
+    " reformat json through python
+    command JsonFormat :%!python -m json.tool
+
