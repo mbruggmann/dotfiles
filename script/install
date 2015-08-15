@@ -1,14 +1,41 @@
-#!/usr/bin/env bash
+#!/bin/bash
 #
 # Run all dotfiles installers.
 
 set -e
+echo ''
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  exit
+}
+
 
 cd "$(dirname $0)"/..
 
 # find the installers and run them iteratively
-find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
+find . -name install.sh | while read installer;
+do
+    sh -c "${installer}";
+    success "ran ${installer}"
+done
 
 # install all brew packages
-brew update
-cat **/*.brew | xargs brew install
+cat **/*.brew | while read package;
+do
+    if brew list -1 | grep -q "^${package}\$";
+    then
+        success "skipped $package"
+    else
+        brew install "$package";
+        success "brewed $package"
+    fi
+done
+
+echo ''
+echo '  All installed!'

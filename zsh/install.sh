@@ -1,8 +1,14 @@
 #!/bin/bash
 # install oh-my-zsh
-sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+if [ ! -d "$HOME/.oh-my-zsh" ];
+then
+    sh -c "$(wget https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
 
 # link the theme file
-ZSH=$HOME/.oh-my-zsh
-DOTFILES=$HOME/.dotfiles
-ln -s -f $DOTFILES/zsh/marcbr.zsh-theme $ZSH/themes/marcbr.zsh-theme
+TARGET="$HOME/.oh-my-zsh/themes/marcbr.zsh-theme"
+if [ ! -f $TARGET ];
+then
+    SRC="$HOME/.dotfiles/zsh/marcbr.zsh-theme"
+    ln -s $SRC $TARGET
+fi

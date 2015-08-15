@@ -6,7 +6,6 @@ cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd)
 
 set -e
-
 echo ''
 
 info () {
@@ -115,7 +114,6 @@ install_dotfiles () {
 }
 
 install_dotfiles
-source ~/.zshrc
 
 echo ''
-echo '  All installed!'
+echo '  All linked!'
