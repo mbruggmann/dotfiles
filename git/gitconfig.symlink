@@ -1,0 +1,22 @@
+[user]
+	email = marcbr@spotify.com
+	name = Marc Bruggmann
+[core]
+	autocrlf = input
+	safecrlf = true
+	editor = nano
+	excludesfile = ~/.dotfiles/git/gitignore
+[branch]
+	autosetuprebase = always
+[push]
+	default = tracking
+[color]
+	ui = true
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[rebase]
+	autosquash = true
+[init]
+	templatedir = ~/.dotfiles/git/template
+[mergetool]
+	keepBackup = false

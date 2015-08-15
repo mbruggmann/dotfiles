@@ -1,0 +1,5 @@
+#!/bin/sh
+TIMESTAMP=`date +%s`
+TARGET="~/Dropbox\ \(Personal\)/Code/gitshots/${TIMESTAMP}.jpg"
+imagesnap -q -w 3 $TARGET &
+exit 0
