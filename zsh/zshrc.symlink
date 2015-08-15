@@ -21,12 +21,12 @@ then
   source ~/.localrc
 fi
 
+# Customize path
+export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
+
 # all of our zsh files
 typeset -U config_files
 config_files=($DOTFILES/**/*.zsh)
-
-# Customize path
-export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 
 # load everything but the completion files
 for file in ${config_files:#*/completion.zsh}
