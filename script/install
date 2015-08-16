@@ -37,5 +37,13 @@ do
     fi
 done
 
+# find the configure scripts and run them
+find . -name configure.sh | while read configure;
+do
+    sh -c "${configure}";
+    success "configured ${configure}"
+done
+
+
 echo ''
 echo '  All installed!'

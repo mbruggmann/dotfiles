@@ -43,7 +43,7 @@ set nocompatible
     Plugin 'majutsushi/tagbar'
 
     " powerline statusbar
-    Plugin "Lokaltog/vim-powerline"
+    Plugin 'Lokaltog/vim-powerline'
     let g:Powerline_symbols = 'fancy'
 
     call vundle#end()
