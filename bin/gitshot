@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+ file="~/Dropbox/Code/gitshots/#{Time.now.to_i}.jpg"
+ system "imagesnap -q -w 3 #{file} &"
+ exit 0
