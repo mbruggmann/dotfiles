@@ -70,7 +70,8 @@ set nocompatible
     inoremap jj <ESC>
 
     " font
-    set guifont=Monaco:h11
+    " set guifont=Monaco:h11
+    set guifont=Ubuntu_Mono_for_Powerline:h14
 
 " Indent
     set shiftwidth=4
