@@ -17,4 +17,4 @@ unsetopt correct_all
 export PATH="/usr/local/bin:/usr/local/sbin:$DOTFILES/bin:$PATH"
 
 # source all .zsh files
-source $DOTFILES/**/*.zsh
+for f in $DOTFILES/**/*.zsh; do source $f; done;
