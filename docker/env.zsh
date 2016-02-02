@@ -1,2 +1,5 @@
 # set up docker-machine env
-eval "$(docker-machine env dev)"
+function docker_env {
+    eval "$(docker-machine env dev)"
+}
+docker_env
